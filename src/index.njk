@@ -1,0 +1,54 @@
+---
+layout: layouts/page.njk
+title: Home
+eleventyNavigation:
+  key: Home
+  order: 1
+---
+{% from "components/veg-icon.njk" import vegIcon %}
+<section class="bg-moss-50">
+  <div class="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h1 class="font-display text-5xl font-bold text-moss-700 leading-tight mb-4">{{ business.name }}</h1>
+      <p class="text-lg text-moss-700/80 mb-8">{{ business.tagline }}</p>
+      <a href="/boxes/" class="inline-block bg-clay-500 text-white font-bold px-7 py-3 rounded-xl no-underline">Build This Week's Box</a>
+    </div>
+    <div class="grid grid-cols-4 gap-4">
+      {% for item in produce.list | head(8) %}
+      <div class="bg-white border border-moss-100 rounded-2xl p-4 flex items-center justify-center bob" style="animation-delay: {{ loop.index0 * 0.15 }}s;">
+        {{ vegIcon(item.icon) }}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="max-w-6xl mx-auto px-6 py-16">
+  <h2 class="font-display text-3xl font-bold text-moss-700 text-center mb-2">How It Works</h2>
+  <p class="text-center text-moss-700/70 max-w-xl mx-auto mb-10">No subscription lock-in, no mystery vegetables you didn't want.</p>
+  <div class="grid sm:grid-cols-3 gap-8 text-center">
+    <div>
+      <p class="font-display text-3xl font-bold text-clay-500 mb-2">1</p>
+      <h3 class="font-display font-bold text-moss-700 mb-1">Pick what you want</h3>
+      <p class="text-moss-700/70 text-sm">Use the box builder to choose exactly what goes in, up to the weight limit.</p>
+    </div>
+    <div>
+      <p class="font-display text-3xl font-bold text-clay-500 mb-2">2</p>
+      <h3 class="font-display font-bold text-moss-700 mb-1">We pick it that morning</h3>
+      <p class="text-moss-700/70 text-sm">Nothing sits in a warehouse — it comes out of the ground the day it ships.</p>
+    </div>
+    <div>
+      <p class="font-display text-3xl font-bold text-clay-500 mb-2">3</p>
+      <h3 class="font-display font-bold text-moss-700 mb-1">Pick up or delivery</h3>
+      <p class="text-moss-700/70 text-sm">Farm pickup Saturdays, or local delivery within 15 miles.</p>
+    </div>
+  </div>
+</section>
+
+<section class="bg-moss-700 text-moss-50">
+  <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+    <h2 class="font-display text-3xl font-bold mb-4">Ready to build your box?</h2>
+    <p class="text-moss-50/80 mb-8">It takes about two minutes and there's no commitment — see the estimated total before you reach out.</p>
+    <a href="/boxes/" class="inline-block bg-clay-500 text-white font-bold px-7 py-3 rounded-xl no-underline">Start Building</a>
+  </div>
+</section>

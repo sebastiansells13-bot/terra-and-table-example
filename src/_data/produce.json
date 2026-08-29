@@ -1,0 +1,12 @@
+{
+  "list": [
+    { "id": "carrots", "name": "Carrots", "unit": "bunch", "weight": 1.0, "price": 3.5, "icon": "carrot" },
+    { "id": "tomatoes", "name": "Heirloom Tomatoes", "unit": "lb", "weight": 1.0, "price": 4.5, "icon": "tomato" },
+    { "id": "kale", "name": "Kale", "unit": "bunch", "weight": 0.6, "price": 3.0, "icon": "leaf" },
+    { "id": "zucchini", "name": "Zucchini", "unit": "each", "weight": 0.8, "price": 1.25, "icon": "squash" },
+    { "id": "strawberries", "name": "Strawberries", "unit": "pint", "weight": 1.0, "price": 5.0, "icon": "berry" },
+    { "id": "corn", "name": "Sweet Corn", "unit": "ear", "weight": 0.5, "price": 0.9, "icon": "corn" },
+    { "id": "potatoes", "name": "Potatoes", "unit": "lb", "weight": 1.0, "price": 2.25, "icon": "tuber" },
+    { "id": "green-beans", "name": "Green Beans", "unit": "lb", "weight": 1.0, "price": 3.75, "icon": "bean" }
+  ]
+}

@@ -1,0 +1,24 @@
+/* The handful of things Tailwind utilities don't cover: SVG icon strokes,
+   the wavy section divider, and the Tailwind config itself (below, loaded
+   inline in base.njk since we're using the CDN build, not a build step). */
+
+.veg-icon {
+  stroke: #3f6212;
+  stroke-width: 1.6;
+  fill: none;
+}
+
+.leaf-divider {
+  display: block;
+  width: 100%;
+  height: 2.5rem;
+}
+
+@keyframes gentle-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.bob {
+  animation: gentle-bob 3.5s ease-in-out infinite;
+}

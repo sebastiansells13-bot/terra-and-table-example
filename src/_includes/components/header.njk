@@ -1,0 +1,17 @@
+<header class="bg-moss-50 border-b border-moss-100">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between flex-wrap gap-4">
+    <a href="/" class="font-display text-xl font-bold text-moss-700">{{ business.name or metadata.title }}</a>
+    <nav aria-label="Primary">
+      <ul class="flex gap-6 list-none m-0 p-0 flex-wrap">
+        {% for item in navigation %}
+        <li>
+          <a href="{{ item.url }}"
+             class="font-semibold text-moss-700 hover:text-clay-500 no-underline {% if page.url == item.url %}text-clay-500 border-b-2 border-clay-500{% endif %}">
+            {{ item.text }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+</header>

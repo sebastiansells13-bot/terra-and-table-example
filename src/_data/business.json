@@ -1,0 +1,9 @@
+{
+  "name": "Terra & Table",
+  "tagline": "A weekly CSA box, picked the morning it ships.",
+  "phone": "(555) 555-0161",
+  "email": "hello@terraandtable.example",
+  "address": "4 Furrow Lane, Cedar Falls, OH 43215",
+  "boxCapacityLb": 10,
+  "boxBasePrice": 28
+}

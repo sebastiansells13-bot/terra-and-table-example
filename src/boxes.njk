@@ -1,0 +1,64 @@
+---
+layout: layouts/page.njk
+title: Build a Box
+permalink: /boxes/
+---
+{% from "components/veg-icon.njk" import vegIcon %}
+<div class="max-w-6xl mx-auto px-6 py-12">
+  <h1 class="font-display text-4xl font-bold text-moss-700 mb-2">Build Your Box</h1>
+  <p class="text-moss-700/80 max-w-2xl mb-10">
+    Pick what you want, however much of it — boxes hold up to {{ business.boxCapacityLb }} lb
+    comfortably. This is a live preview of what you'd reserve; nothing is charged here.
+  </p>
+
+  <div class="grid md:grid-cols-3 gap-10">
+    <div class="md:col-span-2 grid sm:grid-cols-2 gap-4" id="produce-list">
+      {% for item in produce.list %}
+      <div class="bg-white border border-moss-100 rounded-2xl p-4 flex items-center gap-4" data-produce-id="{{ item.id }}">
+        {{ vegIcon(item.icon) }}
+        <div class="flex-1">
+          <p class="font-semibold text-moss-700 m-0">{{ item.name }}</p>
+          <p class="text-sm text-moss-700/60 m-0">{{ item.price | money }} / {{ item.unit }} · {{ item.weight }} lb</p>
+        </div>
+        <input
+          type="number"
+          min="0"
+          max="12"
+          value="0"
+          class="w-16 border border-moss-100 rounded-lg px-2 py-1 text-center"
+          data-qty
+          data-weight="{{ item.weight }}"
+          data-price="{{ item.price }}"
+          aria-label="Quantity of {{ item.name }}"
+        >
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="bg-moss-50 border border-moss-100 rounded-2xl p-6 h-fit sticky top-6">
+      <h2 class="font-display text-xl font-bold text-moss-700 mt-0">This Week's Box</h2>
+      <div class="flex justify-between py-1 text-sm"><span>Box weight</span><span id="box-weight">0.0 lb</span></div>
+      <div class="flex justify-between py-1 text-sm"><span>Capacity</span><span>{{ business.boxCapacityLb }} lb</span></div>
+
+      <div class="h-2 rounded-full bg-moss-100 my-3 overflow-hidden">
+        <div id="box-meter" class="h-full bg-clay-500 rounded-full" style="width:0%"></div>
+      </div>
+      <p id="box-status" class="text-sm font-semibold text-moss-700">Add some produce to get started.</p>
+
+      <div class="flex justify-between py-2 mt-3 border-t border-moss-100 text-sm"><span>Base box fee</span><span>{{ business.boxBasePrice | money }}</span></div>
+      <div class="flex justify-between py-2 border-t border-moss-100 font-bold text-lg text-moss-700"><span>Estimated total</span><span id="box-total">{{ business.boxBasePrice | money }}</span></div>
+
+      <button type="button" id="reserve-btn" disabled class="mt-4 w-full bg-clay-500 disabled:bg-moss-100 disabled:text-moss-700/40 text-white font-bold py-3 rounded-xl">
+        Reserve This Box
+      </button>
+      <p id="reserve-confirm" class="text-sm text-moss-700 mt-3 hidden">Box reserved (demo) — we'd email a confirmation here on a live site.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  window.BOX_CONFIG = {
+    capacityLb: {{ business.boxCapacityLb }},
+    basePrice: {{ business.boxBasePrice }}
+  };
+</script>

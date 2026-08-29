@@ -1,0 +1,7 @@
+[
+  { "text": "Home", "url": "/" },
+  { "text": "Build a Box", "url": "/boxes/" },
+  { "text": "About", "url": "/about/" },
+  { "text": "Journal", "url": "/blog/" },
+  { "text": "Contact", "url": "/contact/" }
+]
